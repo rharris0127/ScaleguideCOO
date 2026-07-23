@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Ryan Harris | Fractional COO Notes</title>
+<meta name="description" content="Notes on operations, go-to-market, and growth-stage execution from a working fractional COO.">
+<meta property="og:title" content="Insights — Ryan Harris | Fractional COO Notes">
+<meta property="og:description" content="Notes on operations, go-to-market, and growth-stage execution from a working fractional COO.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231C2740'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23F6F5F1' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --paper: #F6F5F1; --ink: #15181D; --ink-soft: #4B4F58;
+    --navy: #2B3A55; --navy-deep: #1C2740; --signal: #C1892E;
+    --line: #D8D5CC; --line-strong: #15181D; --white: #FFFFFF;
+    --max: 1120px; --content: 640px; --gap: clamp(20px, 4vw, 64px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap); }
+  header { position: sticky; top: 0; z-index: 50; background: rgba(246,245,241,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav.wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand .name { font-weight: 700; font-size: 17px; letter-spacing: 0.01em; }
+  .brand .sub { font-size: 10.5px; color: var(--ink-soft); letter-spacing: 0.14em; }
+  .navlinks { display: flex; gap: 36px; font-size: 13.5px; font-weight: 500; }
+  .navlinks a { color: var(--ink-soft); transition: color 0.15s ease; }
+  .navlinks a:hover, .navlinks a.active { color: var(--ink); }
+  .nav-cta { padding: 9px 18px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 600; border-radius: 2px; }
+  @media (max-width: 760px) { .navlinks { display: none; } }
+  footer { padding: 32px 0; font-size: 12.5px; color: var(--ink-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer .links { display: flex; gap: 20px; }
+
+  /* ---------- INSIGHTS LISTING ---------- */
+  .insights-hero { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
+  .insights-hero h1 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; letter-spacing: -0.015em; margin-bottom: 16px; }
+  .insights-hero p { font-size: 17px; color: var(--ink-soft); max-width: var(--content); }
+  .post-list { padding: 56px 0 96px; }
+  .post-card { padding: 32px 0; border-bottom: 1px solid var(--line); }
+  .post-card:first-child { padding-top: 0; }
+  .post-card .date { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft); letter-spacing: 0.05em; margin-bottom: 10px; display: block; }
+  .post-card h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 10px; max-width: 720px; }
+  .post-card h2 a:hover { color: var(--navy); }
+  .post-card .excerpt { font-size: 15.5px; color: var(--ink-soft); max-width: 640px; margin-bottom: 12px; }
+  .post-card .read-more { font-size: 13.5px; font-weight: 600; color: var(--navy-deep); border-bottom: 1px solid var(--navy-deep); }
+
+  /* ---------- POST PAGE ---------- */
+  .post-header { padding: 64px 0 40px; border-bottom: 1px solid var(--line); }
+  .post-header .back-link { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft); margin-bottom: 28px; display: inline-block; }
+  .post-header .date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+  .post-header h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; max-width: 780px; }
+  .post-body { padding: 48px 0 96px; max-width: var(--content); margin: 0 auto var(--gap); }
+  .post-body p { font-size: 17px; line-height: 1.7; color: var(--ink); margin-bottom: 22px; }
+  .post-body ul { margin: 0 0 22px 0; padding-left: 22px; }
+  .post-body li { font-size: 17px; line-height: 1.7; color: var(--ink); margin-bottom: 12px; }
+  .post-body strong { color: var(--navy-deep); }
+  .post-cta { border-top: 1px solid var(--line); padding-top: 32px; margin-top: 16px; }
+  .post-cta a { font-weight: 600; color: var(--navy-deep); border-bottom: 1px solid var(--navy-deep); }
+</style>
+
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <a href="/"><span class="name">RYAN HARRIS</span></a>
+      <span class="sub mono">SCALEGUIDE</span>
+    </div>
+    <div class="navlinks">
+      <a href="/#work">How I Work</a>
+      <a href="/insights.html" class="active">Insights</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#about">About</a>
+    </div>
+    <a href="/#talk" class="nav-cta">Let's Talk</a>
+  </nav>
+</header>
+<section class="insights-hero">
+  <div class="wrap">
+    <h1>Insights</h1>
+    <p>Notes from the work &mdash; what actually breaks growth-stage companies, and what fixes it.</p>
+  </div>
+</section>
+<section class="post-list">
+  <div class="wrap">
+    <div class="post-card">
+      <span class="date mono">July 30, 2026</span>
+      <h2><a href="/posts/rug-pulled-at-the-one-yard-line.html">What Do You Do When the Rug Gets Pulled at the One-Yard Line?</a></h2>
+      <p class="excerpt">A meticulous GTM plan, a payment processor that pulled out days before launch, and the five things I'd do differently.</p>
+      <a href="/posts/rug-pulled-at-the-one-yard-line.html" class="read-more">Read &rarr;</a>
+    </div>
+  </div>
+</section>
+<footer class="wrap">
+  <div>Harrisco LLC DBA ScaleGuide</div>
+  <div class="links">
+    <a href="/#">Privacy</a>
+    <a href="/#">Terms</a>
+    <a href="mailto:ryan@myscaleguide.com">Contact</a>
+  </div>
+</footer>
+</body>
+</html>
