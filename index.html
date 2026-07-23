@@ -239,8 +239,10 @@
     position: relative;
     padding-top: 22px;
     padding-right: 22px;
+    padding-left: 22px;
     border-right: 1px solid var(--line);
   }
+  .zone:first-child { padding-left: 0; }
   .zone:last-child { border-right: none; padding-right: 0; }
   .zone::before {
     content: '';
@@ -533,7 +535,7 @@
           <div class="range">$5M &ndash; $15M</div>
           <div class="desc">You need systems, not heroics. Management layer, repeatable GTM motion, process documentation, KPIs you can actually trust.</div>
         </div>
-        <div class="zone" style="border-left: 1px solid var(--line); margin-left:-1px;">
+        <div class="zone">
           <div class="range">$15M &ndash; $40M</div>
           <div class="desc">Specialization and leadership quality start to matter more than hustle. Forecasting discipline, margin optimization, the org chart catching up to reality.</div>
         </div>
