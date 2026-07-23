@@ -390,7 +390,79 @@
   .final-cta .btn-primary { background: var(--signal); color: var(--navy-deep); }
   .final-cta .btn-primary:hover { background: #d69940; }
 
-  /* ---------- FOOTER ---------- */
+  /* ---------- INTAKE FORM ---------- */
+  .intake-form {
+    max-width: var(--content);
+    margin-top: 32px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .form-field { display: flex; flex-direction: column; }
+  .form-field.full { grid-column: 1 / -1; }
+  .form-field label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(246,245,241,0.6);
+    margin-bottom: 6px;
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    padding: 11px 12px;
+    background: rgba(246,245,241,0.06);
+    border: 1px solid rgba(246,245,241,0.25);
+    color: var(--paper);
+    border-radius: 2px;
+  }
+  .form-field textarea { resize: vertical; min-height: 80px; }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder { color: rgba(246,245,241,0.35); }
+  .form-field select { color: var(--paper); }
+  .form-field select option { color: var(--ink); }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: var(--signal);
+  }
+  .honeypot-field { position: absolute; left: -9999px; }
+  .form-submit-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .email-alt {
+    font-size: 13.5px;
+    color: rgba(246,245,241,0.55);
+  }
+  .email-alt a {
+    color: rgba(246,245,241,0.85);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .form-success {
+    display: none;
+    font-size: 17px;
+    color: var(--paper);
+    max-width: var(--content);
+    margin-top: 32px;
+    padding: 24px;
+    border-left: 2px solid var(--signal);
+    background: rgba(246,245,241,0.05);
+  }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
   footer {
     padding: 32px 0;
     font-size: 12.5px;
@@ -548,22 +620,102 @@
     <h2>I don't take every engagement.</h2>
     <div class="body-col">
       <p>I work with founders who can delegate, who don't already have full-time operational leadership in seat, and who are evaluating fit — not just negotiating rate.</p>
-      <p>If that's you, let's talk.</p>
+      <p>If that's you, tell me a bit about the situation and I'll follow up within one business day.</p>
     </div>
-    <div class="cta-row" style="margin-top: 28px;">
-      <a href="mailto:rharris0127@gmail.com" class="btn-primary">Start the Conversation</a>
+
+    <form name="intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="intake-form" id="intake-form">
+      <input type="hidden" name="form-name" value="intake">
+      <p class="honeypot-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-company">Company Name</label>
+          <input type="text" id="f-company" name="company" required>
+        </div>
+        <div class="form-field">
+          <label for="f-industry">Industry</label>
+          <select id="f-industry" name="industry" required>
+            <option value="">Select one</option>
+            <option>SaaS</option>
+            <option>Healthcare</option>
+            <option>Healthcare Tech</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field full">
+          <label for="f-arr">Current ARR</label>
+          <select id="f-arr" name="arr_range" required>
+            <option value="">Select one</option>
+            <option>Under $4M</option>
+            <option>$4M &ndash; $20M</option>
+            <option>$20M &ndash; $40M</option>
+            <option>$40M+</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field full">
+          <label for="f-challenge">What's the challenge you're facing?</label>
+          <textarea id="f-challenge" name="challenge" placeholder="A few sentences is plenty." required></textarea>
+        </div>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn-primary" style="border:none; cursor:pointer; font-family:'IBM Plex Sans',sans-serif;">Send</button>
+        <span class="email-alt">Prefer to skip this? Email me directly at <a href="mailto:ryan@myscaleguide.com">ryan@myscaleguide.com</a></span>
+      </div>
+    </form>
+
+    <div class="form-success" id="form-success">
+      Thanks — that's in my inbox now. I'll follow up within one business day.
     </div>
   </div>
 </section>
 
 <footer class="wrap">
+
   <div>Harrisco LLC DBA ScaleGuide</div>
   <div class="links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
-    <a href="mailto:rharris0127@gmail.com">Contact</a>
+    <a href="mailto:ryan@myscaleguide.com">Contact</a>
   </div>
 </footer>
+
+<script>
+  const intakeForm = document.getElementById('intake-form');
+  intakeForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(intakeForm);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
+        intakeForm.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      })
+      .catch(() => {
+        alert("Something went wrong submitting the form. Please email ryan@myscaleguide.com directly instead.");
+      });
+  });
+</script>
 
 </body>
 </html>
