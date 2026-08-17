@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Contract Clause Nobody Negotiates Until It's Too Late — Ryan Harris</title>
+<meta name="description" content="A fractional COO's account of holding the line on vendor exit rights, and why price is the easy negotiation while exit terms are the one that actually protects you.">
+<meta property="og:title" content="The Contract Clause Nobody Negotiates Until It's Too Late — Ryan Harris">
+<meta property="og:description" content="A fractional COO's account of holding the line on vendor exit rights, and why price is the easy negotiation while exit terms are the one that actually protects you.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231C2740'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23F6F5F1' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --paper: #F6F5F1; --ink: #15181D; --ink-soft: #4B4F58;
+    --navy: #2B3A55; --navy-deep: #1C2740; --signal: #C1892E;
+    --line: #D8D5CC; --line-strong: #15181D; --white: #FFFFFF;
+    --max: 1120px; --content: 640px; --gap: clamp(20px, 4vw, 64px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap); }
+  header { position: sticky; top: 0; z-index: 50; background: rgba(246,245,241,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav.wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand .name { font-weight: 700; font-size: 17px; letter-spacing: 0.01em; }
+  .brand .sub { font-size: 10.5px; color: var(--ink-soft); letter-spacing: 0.14em; }
+  .navlinks { display: flex; gap: 36px; font-size: 13.5px; font-weight: 500; }
+  .navlinks a { color: var(--ink-soft); transition: color 0.15s ease; }
+  .navlinks a:hover, .navlinks a.active { color: var(--ink); }
+  .nav-cta { padding: 9px 18px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 600; border-radius: 2px; }
+  @media (max-width: 760px) { .navlinks { display: none; } }
+  footer { padding: 32px 0; font-size: 12.5px; color: var(--ink-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer .links { display: flex; gap: 20px; }
+
+  /* ---------- INSIGHTS LISTING ---------- */
+  .insights-hero { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
+  .insights-hero h1 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; letter-spacing: -0.015em; margin-bottom: 16px; }
+  .insights-hero p { font-size: 17px; color: var(--ink-soft); max-width: var(--content); }
+  .post-list { padding: 56px 0 96px; }
+  .post-card { padding: 32px 0; border-bottom: 1px solid var(--line); }
+  .post-card:first-child { padding-top: 0; }
+  .post-card .date { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft); letter-spacing: 0.05em; margin-bottom: 10px; display: block; }
+  .post-card h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 10px; max-width: 720px; }
+  .post-card h2 a:hover { color: var(--navy); }
+  .post-card .excerpt { font-size: 15.5px; color: var(--ink-soft); max-width: 640px; margin-bottom: 12px; }
+  .post-card .read-more { font-size: 13.5px; font-weight: 600; color: var(--navy-deep); border-bottom: 1px solid var(--navy-deep); }
+
+  /* ---------- POST PAGE ---------- */
+  .post-header { padding: 64px 0 40px; border-bottom: 1px solid var(--line); }
+  .post-header .back-link { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft); margin-bottom: 28px; display: inline-block; }
+  .post-header .date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+  .post-header h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; max-width: 780px; }
+  .post-body { padding: 48px 0 96px; }
+  .post-body-inner { max-width: var(--content); }
+  .post-body p { font-size: 17px; line-height: 1.7; color: var(--ink); margin-bottom: 22px; }
+  .post-body ul { margin: 0 0 22px 0; padding-left: 22px; }
+  .post-body li { font-size: 17px; line-height: 1.7; color: var(--ink); margin-bottom: 12px; }
+  .post-body strong { color: var(--navy-deep); }
+  .post-cta { border-top: 1px solid var(--line); padding-top: 32px; margin-top: 16px; }
+  .post-cta a { font-weight: 600; color: var(--navy-deep); border-bottom: 1px solid var(--navy-deep); }
+</style>
+
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <a href="/"><span class="name">RYAN HARRIS</span></a>
+      <span class="sub mono">SCALEGUIDE</span>
+    </div>
+    <div class="navlinks">
+      <a href="/#work">How I Work</a>
+      <a href="/insights.html" class="active">Insights</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#about">About</a>
+    </div>
+    <a href="/#talk" class="nav-cta">Let's Talk</a>
+  </nav>
+</header>
+<section class="post-header">
+  <div class="wrap">
+    <a href="/insights.html" class="back-link mono">&larr; Back to Insights</a>
+    <span class="date">August 18, 2026</span>
+    <h1>The Contract Clause Nobody Negotiates Until It's Too Late</h1>
+  </div>
+</section>
+<section class="post-body">
+  <div class="wrap">
+    <div class="post-body-inner">
+
+<p>Every growth-stage company I've worked with has signed a contract they didn't read closely enough. Not because they're careless, but because the pressure is always on to get the deal done, not to slow down and ask what happens if it goes wrong.</p>
+<p>I watched this play out again a few weeks ago with a client. They were bringing on a new platform partner, the kind of vendor relationship that touches revenue directly. The initial term sheet looked fine on the surface - good pricing, reasonable scope, a launch timeline everyone was excited about.</p>
+<p>Then we got into the actual contract language and found the problem. No termination for convenience, and no termination for cause tied to anything measurable, like uptime or error rates. A multi-year term with no real off-ramp if the vendor underperformed. On paper it read like a partnership, but in practice it was a four-year lease with someone else holding the keys.</p>
+<p>It's easy to give way to the instinct to keep moving. The deal was already in motion, the team was excited, and going back to renegotiate felt like it would slow everything down or sour the relationship before it even started. We all get it, momentum feels like progress.</p>
+<p>But signing that contract as written wasn't a shortcut, it would have been a total gamble that the vendor would perform well for years, with no consequence if they didn't. That's a bet with little to no upside and tremendous downside - angry customers, lost revenue, or worse&hellip;</p>
+<p>So we held the line. We went back and asked for exit rights tied to actual performance. We don't expect this vendor to fail. But trust in a relationship like this gets built over time, and we needed protection in place just to get the chance to build it. It took longer, it required real legal conversations instead of a quick email exchange, and it was worth every extra week - as painful as they have felt in the interim.</p>
+<p>This pattern is consistent with founders and operators moving fast, they negotiate hard on price and scope because those numbers are visible and easy to compare. Then they treat the exit terms as boilerplate, something legal will "handle," because thinking about failure feels like betting against your own optimism.</p>
+<p>But exit terms can often be the quiet make or break. Price tells you what you're paying if things go well. Exit rights tell you what it costs if they don't, and with any vendor your revenue actually depends on - that second question matters more than the first.</p>
+<p>A few things I'd tell any operator or founder heading into one of these negotiations.</p>
+<p>Ask for termination for cause with actual defined metrics attached to it, not vague language about "material breach." Vague language protects the vendor, not you.</p>
+<p>Push for termination for convenience if you can get it, even with a notice period and a reasonable fee attached. Being locked in for years with no way out, even from a vendor performing fine today, is a risk you're carrying for free.</p>
+<p>Treat a vendor's resistance to exit terms as information. If they won't agree to be held to their own performance, ask yourself why that is.</p>
+<p>None of this makes you difficult to work with - it makes you someone who reads the fine print before you need it. The vendors worth working with will respect that, and the ones who push back hardest on basic exit protection are usually telling you something true about how they'll behave once you've signed.</p>
+
+      <div class="post-cta">
+        <a href="/#talk">Think this might be relevant to what you're navigating? Let's talk.</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="wrap">
+  <div>Harrisco LLC DBA ScaleGuide</div>
+  <div class="links">
+    <a href="/#">Privacy</a>
+    <a href="/#">Terms</a>
+    <a href="mailto:ryan@myscaleguide.com">Contact</a>
+  </div>
+</footer>
+</body>
+</html>
